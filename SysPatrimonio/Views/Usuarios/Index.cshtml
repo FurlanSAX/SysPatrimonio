@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SysPatrimonio.Models.DbUsuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Index </h1>*@
+<img src="https://cdn.icon-icons.com/icons2/936/PNG/512/user-shape_icon-icons.com_73346.png" width="60">
+<p>
+    <a asp-action="Create">Novo usuário</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="background-color:bisque; border-radius:10px">
+                <img src="https://cdn-icons.flaticon.com/png/512/3808/premium/3808496.png?token=exp=1653607603~hmac=fd9ccbec84ae1188124016b97ca9379a" width="30">
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th style="background-color:darkgrey; border-radius:10px">
+                <img src="https://cdn-icons.flaticon.com/png/512/4526/premium/4526817.png?token=exp=1653608413~hmac=c9517dc253b8c8d3e1dcccfb29222b15" width="30"/>
+                @Html.DisplayNameFor(model => model.login)
+            </th>
+            <th style="background-color:bisque; border-radius:10px">
+                <img src="https://cdn-icons-png.flaticon.com/512/6767/6767825.png" width="30" />
+                @Html.DisplayNameFor(model => model.senha)
+            </th>
+            <th style="background-color:darkgrey; border-radius:10px">
+                <img src="https://cdn-icons-png.flaticon.com/512/5090/5090092.png" width="30" />
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
